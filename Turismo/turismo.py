@@ -34,7 +34,19 @@ def encontrarAtracciones(destino, interes):
                 atraccionesInteres.append(i[0])
     
     return atraccionesInteres
+
+def atraccionesParaViajeros(viajero):
+    destino = viajero[1]
+    intereses = viajero[2]
     
+    atraccionesViajero = encontrarAtracciones(destino, intereses)
+    string = """
+    Hola, {nombre}, creemos que te gustaran estos lugares alrededor de {lugar}: 
+    """.format(nombre = viajero[0], lugar = destino)
+    for i in atraccionesViajero:
+        string += i + ", "
+    return string
+
 test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
 
 atracciones = [[] for i in destinos]
@@ -51,5 +63,5 @@ añadirAtraccion("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"
 añadirAtraccion("Cairo, Egipto", ["Pyramids of Giza", ["monument", "historical site"]])
 añadirAtraccion("Cairo, Egipto", ["Egyptian Museum", ["museum"]])
 
-arteLA = encontrarAtracciones("Los Angeles, USA", ["art"])
-print(arteLA)
+smills = atraccionesParaViajeros(['Dereck Smill', 'Paris, Francia', ['monument']])
+print(smills)
