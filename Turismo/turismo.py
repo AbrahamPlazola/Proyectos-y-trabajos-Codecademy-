@@ -20,6 +20,21 @@ def añadirAtraccion(destino, atraccion):
     atracciones[indiceDestino].append(atraccion)
     return
 
+def encontrarAtracciones(destino, interes):
+    indiceDestino = obtenerIndiceDestino(destino)
+    if indiceDestino == None:
+        return
+    atraccionesCiudad = atracciones[indiceDestino]
+    atraccionesInteres = []
+
+    for i in atraccionesCiudad:
+        etiquetas = i[1]
+        for j in interes:
+            if j in etiquetas:
+                atraccionesInteres.append(i[0])
+    
+    return atraccionesInteres
+    
 test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
 
 atracciones = [[] for i in destinos]
@@ -35,3 +50,6 @@ añadirAtraccion("São Paulo, Brazil", ["São Paulo Zoo", ["zoo"]])
 añadirAtraccion("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
 añadirAtraccion("Cairo, Egipto", ["Pyramids of Giza", ["monument", "historical site"]])
 añadirAtraccion("Cairo, Egipto", ["Egyptian Museum", ["museum"]])
+
+arteLA = encontrarAtracciones("Los Angeles, USA", ["art"])
+print(arteLA)
