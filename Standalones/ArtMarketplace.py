@@ -10,12 +10,20 @@ class Art:
             Author = self.artist, Name = self.title, year = self.year, medium = self.medium)
         return string
 
-# class Marketplace:
-#     def __init__(self, listings):
-#         self.listings = listings
+class Marketplace:
+    def __init__(self, listings):
+        self.listings = listings
 
-#     def addListing(self, newListing):
+    def addListing(self, newListing):
+        self.listings.append(newListing)
+
+    def removeListing(self, toRemove):
+        self.listings.pop(toRemove)
+
+    def showListings(self):
+        for i in self.listings:
+            print(i)
 
 
 mandolinGirl = Art("Picasso, Pablo", "Girl with a Mandolin (Fanny Tellier)", "oil on canvas", 1910)
-print(mandolinGirl)
+# veneer = Marketplace()
