@@ -1,13 +1,15 @@
 class Art:
-    def __init__(self, artist, title, medium, year):
+    def __init__(self, artist, title, medium, year, owner):
         self.artist = artist
         self.title = title
         self.medium = medium
         self.year = year
+        self.owner = owner
 
     def __repr__(self):
-        string = "{Author}. '{Name}'. {year}, {medium}".format(
-            Author = self.artist, Name = self.title, year = self.year, medium = self.medium)
+        string = "{Author}. '{PaintName}'. {year}, {medium}. {Owner}, {Location}".format(
+            Author = self.artist, PaintName = self.title, year = self.year, medium = self.medium,
+            Owner = self.owner.name, Location = self.owner.locations)
         return string
 
 class Marketplace:
@@ -34,8 +36,8 @@ class Client:
         self.isMuseum = isMuseum
     
 
-
-mandolinGirl = Art("Picasso, Pablo", "Girl with a Mandolin (Fanny Tellier)", "oil on canvas", 1910)
 veneer = Marketplace()
 edytta = Client("Edytta Halpirt")
 moma = Client("The MOMA", "New York", True)
+mandolinGirl = Art("Picasso, Pablo", "Girl with a Mandolin (Fanny Tellier)", "oil on canvas", 1910, edytta)
+print(mandolinGirl)
