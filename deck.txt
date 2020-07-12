@@ -1,0 +1,3 @@
+pulinpa: 1
+hama: 1
+ha garu: 2
